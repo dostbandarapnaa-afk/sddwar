@@ -1,0 +1,313 @@
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #08111d;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+#game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#game canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+#hud {
+  position: absolute;
+  inset: 0 0 auto;
+  padding: 18px 22px;
+  pointer-events: none;
+  background: linear-gradient(#06101ddd, transparent);
+}
+
+.brand {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.brand span { color: #00d9ff; }
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.stat {
+  min-width: 78px;
+  padding: 9px 12px;
+  border: 1px solid #ffffff22;
+  border-radius: 10px;
+  background: #07121dcc;
+  backdrop-filter: blur(8px);
+}
+
+.stat > small, .stat strong {
+  display: block;
+}
+
+.stat > small {
+  color: #8fa9c3;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.stat strong {
+  margin-top: 5px;
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat strong small {
+  display: inline;
+  font-size: 9px;
+  color: #00d9ff;
+}
+
+.nitro-box {
+  width: 160px;
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #00d9ff;
+  font-weight: bold;
+}
+
+.nitro-track {
+  height: 7px;
+  margin-top: 6px;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #ffffff33;
+}
+
+#nitroFill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #087dff, #00f5ff);
+  transition: width .1s linear;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(130deg, #03101bd9, #081b2d88);
+  backdrop-filter: blur(5px);
+}
+
+.hidden { display: none !important; }
+
+.menu-card {
+  width: min(440px, 100%);
+  padding: 34px 28px;
+  border: 1px solid #ffffff25;
+  border-radius: 20px;
+  background: #081522ed;
+  box-shadow: 0 20px 80px #0009;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #00d9ff;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.menu-card h1 {
+  font-size: clamp(32px, 7vw, 56px);
+  line-height: 1;
+  font-style: italic;
+  font-weight: 1000;
+}
+
+.menu-card h1 span { color: #00d9ff; }
+
+.menu-card p:not(.eyebrow) {
+  color: #b6c5d5;
+  font-size: 13px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.primary, .secondary {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 12px;
+  border-radius: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.primary {
+  border: 0;
+  color: #00121b;
+  background: linear-gradient(100deg, #00d9ff, #47f4d2);
+}
+
+.secondary {
+  color: white;
+  border: 1px solid #ffffff33;
+  background: #ffffff12;
+}
+
+.help {
+  margin-top: 22px;
+  color: #8fa9c3;
+  font-size: 10px;
+  line-height: 2;
+}
+
+#controls {
+  position: absolute;
+  inset: auto 0 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 22px;
+  pointer-events: none;
+}
+
+.steering, .driving {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  min-height: 58px;
+  padding: 10px;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border: 1px solid #ffffff55;
+  border-radius: 16px;
+  background: #061522cc;
+  box-shadow: 0 5px 20px #0005;
+  backdrop-filter: blur(8px);
+}
+
+.control.active, .control:active {
+  transform: scale(.94);
+  background: #087fa9e8;
+}
+
+.steering-btn {
+  width: 62px;
+  height: 70px;
+  font-size: 24px;
+}
+
+.gas {
+  width: 92px;
+  height: 92px;
+  background: #087d57df;
+  border-color: #36ffbd;
+}
+
+.brake {
+  background: #a92735e8;
+  border-color: #ff6477;
+}
+
+.nitro {
+  background: #064db8e8;
+  border-color: #43baff;
+}
+
+#utility {
+  position: absolute;
+  right: 18px;
+  top: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.utility-btn {
+  min-width: 66px;
+  padding: 10px 8px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid #ffffff35;
+  border-radius: 9px;
+  background: #061522c9;
+  backdrop-filter: blur(8px);
+  touch-action: manipulation;
+}
+
+#message {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: clamp(24px, 5vw, 48px);
+  font-weight: 1000;
+  font-style: italic;
+  text-shadow: 0 4px 20px #000;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  #hud { padding: 12px; }
+  .stats { gap: 5px; margin-top: 10px; }
+  .stat { min-width: 67px; padding: 7px; }
+  .stat strong { font-size: 15px; }
+  .stat > small { font-size: 8px; }
+  .nitro-box { width: 125px; }
+  #controls { padding: 0 10px; bottom: 12px; }
+  .steering, .driving { gap: 6px; }
+  .steering-btn { width: 47px; min-width: 47px; height: 58px; }
+  .control { min-width: 45px; min-height: 52px; padding: 6px; font-size: 10px; border-radius: 12px; }
+  .gas { width: 68px; height: 76px; }
+  #utility { right: 10px; top: 155px; gap: 5px; }
+  .utility-btn { min-width: 53px; padding: 9px 5px; font-size: 9px; }
+}
+
+@media (max-height: 500px) {
+  #hud { padding: 8px 14px; }
+  .stats { margin-top: 5px; }
+  .stat { padding: 5px 8px; }
+  .stat strong { font-size: 14px; }
+  #controls { bottom: 8px; }
+  .gas { height: 58px; }
+  .steering-btn { height: 48px; }
+  #utility { top: 110px; }
+}
