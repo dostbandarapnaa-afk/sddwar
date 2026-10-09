@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Racing 3D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game">
+    <div id="hud">
+      <div class="brand">ULTIMATE <span>RACING 3D</span></div>
+      <div class="stats">
+        <div class="stat"><small>SPEED</small><strong><span id="speed">0</span> <small>KM/H</small></strong></div>
+        <div class="stat"><small>GEAR</small><strong id="gear">1</strong></div>
+        <div class="stat"><small>DISTANCE</small><strong><span id="distance">0</span> m</strong></div>
+        <div class="stat"><small>SCORE</small><strong id="score">0</strong></div>
+      </div>
+      <div class="nitro-box">NITRO <div class="nitro-track"><div id="nitroFill"></div></div></div>
+    </div>
+
+    <div id="menu" class="overlay">
+      <div class="menu-card">
+        <p class="eyebrow">THE ROAD IS YOURS</p>
+        <h1>ULTIMATE<br><span>RACING 3D</span></h1>
+        <p>Start your engine. Own the highway.</p>
+        <button id="startBtn" class="primary">START RACE ▶</button>
+        <div class="help">WASD / ARROWS TO DRIVE<br>SHIFT = NITRO · SPACE = HANDBRAKE</div>
+      </div>
+    </div>
+
+    <div id="pauseMenu" class="overlay hidden">
+      <div class="menu-card">
+        <h1>PAUSED</h1>
+        <button id="resumeBtn" class="primary">RESUME RACE</button>
+        <button id="restartBtn" class="secondary">RESTART</button>
+      </div>
+    </div>
+
+    <div id="controls">
+      <div class="steering">
+        <button id="leftBtn" class="control steering-btn">◀</button>
+        <button id="rightBtn" class="control steering-btn">▶</button>
+      </div>
+      <div class="driving">
+        <button id="nitroBtn" class="control nitro">NITRO ⚡</button>
+        <button id="brakeBtn" class="control brake">BRAKE</button>
+        <button id="reverseBtn" class="control">REV ◀</button>
+        <button id="gasBtn" class="control gas">ACCELERATE ▲</button>
+      </div>
+    </div>
+
+    <div id="utility">
+      <button id="cameraBtn" class="utility-btn">CAMERA</button>
+      <button id="handbrakeBtn" class="utility-btn">DRIFT</button>
+      <button id="lightsBtn" class="utility-btn">LIGHTS</button>
+      <button id="hornBtn" class="utility-btn">HORN</button>
+      <button id="pauseBtn" class="utility-btn">Ⅱ</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
